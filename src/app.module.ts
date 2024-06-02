@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import ormconfig from 'ormconfig';
 import { MercorUsers } from './entities/mercor-users.entity';
 import { MercorUserSkill } from './entities/mercor-user-skill.entity';
 import { Education } from './entities/education.entity';
@@ -15,13 +14,14 @@ import { DatabaseModule } from './database/database.module';
 import { SearchService } from './search/search.service';
 import { SearchController } from './search/search.controller';
 import { SearchModule } from './search/search.module';
+import typeOrmConfig from 'ormconfig';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    TypeOrmModule.forRoot(ormconfig.options),
+    TypeOrmModule.forRoot(typeOrmConfig),
     TypeOrmModule.forFeature([
       MercorUsers,
       MercorUserSkill,

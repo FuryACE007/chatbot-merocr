@@ -1,12 +1,14 @@
-import { DataSource } from 'typeorm';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-export default new DataSource({
+const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'mysql',
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  host: "35.224.61.48",
+  port: 3306,
+  username: "trial_user",
+  password: "trial_user_12345#",
+  database: "MERCOR_TRIAL_SCHEMA",
   entities: ['dist/**/*.entity{.ts,.js}'],
-  synchronize: true,
-});
+  synchronize: false,
+};
+
+export default typeOrmConfig;

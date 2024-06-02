@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import typeOrmConfig from 'ormconfig';
 import ormconfig from 'ormconfig';
 import { Education } from 'src/entities/education.entity';
 import { MercorUserSkill } from 'src/entities/mercor-user-skill.entity';
@@ -11,7 +12,7 @@ import { WorkExperience } from 'src/entities/work-experience.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(ormconfig.options),
+    // TypeOrmModule.forRoot(typeOrmConfig),
     TypeOrmModule.forFeature([
       MercorUsers,
       Skill,

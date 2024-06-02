@@ -10,10 +10,11 @@ import { WorkExperience } from 'src/entities/work-experience.entity';
 import { SearchService } from './search.service';
 import { SearchController } from './search.controller';
 import ormconfig from 'ormconfig';
+import typeOrmConfig from 'ormconfig';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(ormconfig.options),
     TypeOrmModule.forFeature([
       MercorUsers,
       MercorUserSkill,
